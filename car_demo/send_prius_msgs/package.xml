@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>send_prius_msgs</name>
+  <version>0.0.0</version>
+  <description>The send_prius_msgs package</description>
+
+
+  <maintainer email="whiteherv@todo.todo">whiteherv</maintainer>
+
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>prius_msgs</depend>
+
+
+  <export>
+
+
+  </export>
+</package>
