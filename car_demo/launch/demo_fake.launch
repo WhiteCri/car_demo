@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <launch>
+  
   <arg name="model" default="$(find prius_description)/urdf/prius.urdf"/>
   <arg name="rvizconfig" default="$(find car_demo)/rviz/demo.rviz" />
 
@@ -14,9 +15,11 @@
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
   
-  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -x 3 -y -12 -z 0.5 -model prius"/>
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -x 3 -y -12 -z 0.5 -model prius">
+    <remap from="points_raw" to="p_raw"/>
+  </node>
 
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"/>
 
   <!-- node for connect with autoware -->
   <node pkg="send_prius_msgs" type="fake_sender" name="fake_sender" output="screen"/>

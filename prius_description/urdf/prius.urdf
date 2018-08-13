@@ -264,15 +264,15 @@
 
 
   <!-- Sensor links and fixed joints -->
-  <link name="velodyne_center_link">
+  <link name="velodyne">
     <inertial>
       <mass value="1"/>
       <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
   </link>
-  <joint name="velodyne_center_joint" type="fixed">
+  <joint name="velodyne" type="fixed">
     <parent link="chassis"/>
-    <child link="velodyne_center_link"/>
+    <child link="velodyne"/>
     <origin xyz="0 0.4 1.8" rpy="0 0 -1.5707"/>
   </joint>
 
@@ -402,7 +402,7 @@
   </gazebo>
 
 <!-- modified by TW start-->
-  <gazebo reference="velodyne_center_link">
+  <gazebo reference="velodyne">
     <sensor type="gpu_ray" name="center_velodyne">
       <visualize>false</visualize>
       <update_rate>25</update_rate>
@@ -434,7 +434,7 @@
       </ray>
       <plugin name="gazebo_ros_laser_controller" filename="libgazebo_ros_velodyne_gpu_laser.so">
         <topicName>/points_raw</topicName>
-        <frameName>/velodyne_center_link</frameName>
+        <frameName>/velodyne</frameName>
         <min_range>0.9</min_range>
         <max_range>130.0</max_range>
         <gaussianNoise>0.008</gaussianNoise>

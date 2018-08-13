@@ -7,7 +7,7 @@ Panels:
         - /Global Options1
         - /Status1
         - /Grid1
-        - /filtered_points1
+        - /raw_points1
         - /map1
       Splitter Ratio: 0.5
     Tree Height: 751
@@ -119,7 +119,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        velodyne_center_link:
+        velodyne:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -160,8 +160,6 @@ Visualization Manager:
           Value: true
         left_camera_link:
           Value: true
-        map:
-          Value: true
         rear_left_wheel:
           Value: true
         rear_right_wheel:
@@ -170,7 +168,7 @@ Visualization Manager:
           Value: true
         steering_wheel:
           Value: true
-        velodyne_center_link:
+        velodyne:
           Value: true
         velodyne_front_left_link:
           Value: true
@@ -204,14 +202,12 @@ Visualization Manager:
               {}
             steering_wheel:
               {}
-            velodyne_center_link:
+            velodyne:
               {}
             velodyne_front_left_link:
               {}
             velodyne_front_right_link:
               {}
-        map:
-          {}
       Update Interval: 0
       Value: true
     - Class: rviz/Image
@@ -274,7 +270,7 @@ Visualization Manager:
       Color: 255; 255; 255
       Color Transformer: Intensity
       Decay Time: 0
-      Enabled: false
+      Enabled: true
       Invert Rainbow: false
       Max Color: 0; 255; 0
       Max Intensity: 0
@@ -286,6 +282,36 @@ Visualization Manager:
       Selectable: true
       Size (Pixels): 3
       Size (m): 0.0500000007
+      Style: Flat Squares
+      Topic: /points_raw
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: false
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 0
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: filtered_points
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.100000001
       Style: Flat Squares
       Topic: /points_raw
       Unreliable: false
@@ -304,37 +330,7 @@ Visualization Manager:
       Color: 255; 255; 255
       Color Transformer: Intensity
       Decay Time: 0
-      Enabled: true
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Max Intensity: 0
-      Min Color: 0; 0; 0
-      Min Intensity: 0
-      Name: filtered_points
-      Position Transformer: XYZ
-      Queue Size: 10
-      Selectable: true
-      Size (Pixels): 3
-      Size (m): 0.100000001
-      Style: Flat Squares
-      Topic: /filtered_points
-      Unreliable: false
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: true
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz/PointCloud2
-      Color: 255; 255; 255
-      Color Transformer: Intensity
-      Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: true
       Max Color: 90; 35; 255
       Max Intensity: 0
@@ -351,7 +347,7 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: false
-      Value: true
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
