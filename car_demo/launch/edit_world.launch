@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="world" default="$(find car_demo)/worlds/mcity2.world"/>
+
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="verbose" value="true"/>
+    <arg name="world_name" value="$(arg world)"/>
+    <arg name="use_sim_time" value="false"/>
+    <arg name="gui" value="true"/>
+  </include>
+
+</launch>
