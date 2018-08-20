@@ -3,6 +3,7 @@
   
   <arg name="model" default="$(find prius_description)/urdf/prius.urdf"/>
   <arg name="rvizconfig" default="$(find car_demo)/rviz/demo.rviz" />
+  <arg name="command_gzclient" default="-g libExtractCoordinate2.so" />
 
   <param name="robot_description" textfile="$(arg model)"/>
 
@@ -10,12 +11,11 @@
     <arg name="verbose" value="true"/>
     <arg name="world_name" value="$(find car_demo)/worlds/mcity2.world"/>
     <arg name="use_sim_time" value="true"/>
-    <arg name="gui" value="true"/>
-    <arg name="paused" value="true"/>
+    <arg name="gui" value="false"/>
+    <arg name="paused" value="false"/>
   </include>
-
-  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
-  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher"/>
+  
+  <node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" respawn="false" output="screen" args="$(arg command_gzclient)"/>
   
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf  -x 3 -y -12 -z 0.5 -model prius">
   </node>
@@ -29,5 +29,9 @@
   <param name="prius/fake_control/brake_gain" value="1.0"/>
   <param name="prius/fake_control/steer_gain" value="0.2"/>
   <param name="Hey_noobody_will_call_me" value="true"/>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
+  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher"/>
+  
 
 </launch>

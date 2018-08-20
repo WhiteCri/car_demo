@@ -1,13 +1,17 @@
 <?xml version="1.0"?>
 <launch>
   <arg name="world" default="$(find car_demo)/worlds/mcity2.world"/>
-
-
+  <arg name="command_gzclient" default="-g libExtractCoordinate2.so" />
+  
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="verbose" value="true"/>
-    <arg name="world_name" value="$(arg world)"/>
-    <arg name="use_sim_time" value="false"/>
-    <arg name="gui" value="true"/>
+    <arg name="world_name" value="$(find car_demo)/worlds/mcity2.world"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="false"/>
+    <arg name="paused" value="false"/>
   </include>
+  
+  <node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" respawn="false" output="screen" args="$(arg command_gzclient)"/>
+  
 
 </launch>

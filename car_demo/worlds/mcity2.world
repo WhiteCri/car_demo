@@ -6,7 +6,7 @@
         <pose frame=''>78.8092 39.4532 181.684 0 1.088 3.09</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
-      </camera>
+      </camera>     
     </gui>
     <light name='sun' type='directional'>
       <cast_shadows>1</cast_shadows>

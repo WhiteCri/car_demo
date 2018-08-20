@@ -7,8 +7,6 @@ Panels:
         - /Global Options1
         - /Status1
         - /Grid1
-        - /filtered_points1
-        - /map1
       Splitter Ratio: 0.5
     Tree Height: 877
   - Class: rviz/Selection
@@ -29,7 +27,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: filtered_points
+    SyncSource: ""
 Visualization Manager:
   Class: ""
   Displays:
@@ -311,7 +309,7 @@ Visualization Manager:
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.100000001
+      Size (m): 0.5
       Style: Flat Squares
       Topic: /filtered_points
       Unreliable: false
@@ -341,7 +339,7 @@ Visualization Manager:
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.100000001
+      Size (m): 0.0500000007
       Style: Flat Squares
       Topic: /points_map
       Unreliable: false
@@ -373,25 +371,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 59.6186371
+      Distance: 120.928772
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 4.4633956
-        Y: -0.633552969
-        Z: -0.0132478476
+        X: 0.516744316
+        Y: -1.95413303
+        Z: 2.29143262
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.975397825
+      Pitch: 0.44479692
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.12857318
+      Yaw: 3.81855798
     Saved: ~
 Window Geometry:
   Displays:

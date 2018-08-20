@@ -1,0 +1,14 @@
+<launch>
+    <!--for all gazebo~~ launch file, #=# means that I don't need the code but remain for autoware process in real world-->
+    <arg name="pcd_map" default="/home/whiteherv/Autoware/ros/autoware-180820.pcd"/>
+    <arg name="pcd_map_x" default="36.580901"/>
+    <arg name="pcd_map_y" default="27.939268"/>
+    <arg name="pcd_map_yaw" default="1.638394"/>
+    
+    <!--tf setting--> 
+    <node pkg="tf"  type="static_transform_publisher" name="world_to_map" args="$(arg pcd_map_x) $(arg pcd_map_y) 0 $(arg pcd_map_yaw) 0 0 /world /map 10" /> 
+    <!--#=#--><node pkg="tf"  type="static_transform_publisher" name="map_to_mobility" args="0 0 0 0 0 0 /map /mobility 10" />
+
+    <!--pcd map, vector map setting-->
+    <node pkg="map_file" type="points_map_loader" name="points_map_loader" args="noupdate $(arg pcd_map)"/>
+</launch>
