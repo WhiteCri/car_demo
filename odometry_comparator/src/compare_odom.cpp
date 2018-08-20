@@ -11,7 +11,7 @@ class OdomComparator{
     typedef std::pair<ros::Time, gazebo_msgs::ModelState> ModelStateStamped;
 public:
     OdomComparator(ros::NodeHandle& nh) : nh_ptr(&nh) {
-        pub = nh_ptr->advertise<std_msgs::Float64>("prius/gap", 10);
+        pub = nh_ptr->advertise<odometry_comparator::gap_msgs>("prius/gap", 10);
     }
 
     void modelDeque_CB(const gazebo_msgs::ModelStatesConstPtr& ptr){
@@ -44,7 +44,7 @@ public:
                 std::pow(it->second.pose.position.x - ptr->pose.position.x, 2) +
                 std::pow(it->second.pose.position.y - ptr->pose.position.y, 2)
             ); 
-        
+        ROS_INFO("gazebo prius pose : %lf %lf", it->second.pose.position.x, it->second.pose.position.y);
         odometry_comparator::gap_msgs gap_msg;
         gap_msg.stamp = ros::Time::now();
         gap_msg.dist = dist;
@@ -64,8 +64,8 @@ int main(int argc, char *argv[]){
     ros::NodeHandle nh;
 
     OdomComparator cp(nh);
-    ros::Subscriber sub1 = nh.subscribe("/gazebo/ModelStates", 1, &OdomComparator::modelDeque_CB, &cp);
-    ros::Subscriber sub2 = nh.subscribe("/ndp_pose", 1, &OdomComparator::ndt_pose_CB, &cp);
+    ros::Subscriber sub1 = nh.subscribe("/gazebo/model_states", 1, &OdomComparator::modelDeque_CB, &cp);
+    ros::Subscriber sub2 = nh.subscribe("/ndt_pose", 1, &OdomComparator::ndt_pose_CB, &cp);
 
     ros::spin();
 }

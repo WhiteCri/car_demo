@@ -11,12 +11,13 @@
     <arg name="world_name" value="$(find car_demo)/worlds/mcity2.world"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
+    <arg name="paused" value="true"/>
   </include>
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
+  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher"/>
   
-  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -x 3 -y -12 -z 0.5 -model prius">
-    <remap from="points_raw" to="p_raw"/>
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf  -x 3 -y -12 -z 0.5 -model prius">
   </node>
 
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"/>
