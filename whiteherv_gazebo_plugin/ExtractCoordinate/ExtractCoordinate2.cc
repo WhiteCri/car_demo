@@ -26,6 +26,7 @@ namespace gazebo
 
     public: bool OnMousePress(const common::MouseEvent & _event)
     {
+        std::cout << "mouse pressed!\n";
         if (!_event.Control())
             return false;
         // Check intersection

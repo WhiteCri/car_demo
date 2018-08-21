@@ -3,10 +3,11 @@
   
   <arg name="model" default="$(find prius_description)/urdf/prius.urdf"/>
   <arg name="rvizconfig" default="$(find car_demo)/rviz/demo.rviz" />
-  <arg name="command_gzclient" default="-g libExtractCoordinate2.so" />
+  <arg name="command_gzclient" default="--verbose -g libExtractCoordinate2.so" />
 
   <param name="robot_description" textfile="$(arg model)"/>
 
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="verbose" value="true"/>
     <arg name="world_name" value="$(find car_demo)/worlds/mcity2.world"/>
@@ -29,9 +30,5 @@
   <param name="prius/fake_control/brake_gain" value="1.0"/>
   <param name="prius/fake_control/steer_gain" value="0.2"/>
   <param name="Hey_noobody_will_call_me" value="true"/>
-
-  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
-  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher"/>
-  
 
 </launch>
