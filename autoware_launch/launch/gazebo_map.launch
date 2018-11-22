@@ -4,6 +4,8 @@
     <arg name="pcd_map_x" default="36.580901"/>
     <arg name="pcd_map_y" default="27.939268"/>
     <arg name="pcd_map_yaw" default="1.638394"/>
+
+    <arg name="vector_map" default="/home/vision-workstation/Desktop/vector_maps/dtlane.csv /home/vision-workstation/Desktop/vector_maps/idx.csv /home/vision-workstation/Desktop/vector_maps/lane.csv /home/vision-workstation/Desktop/vector_maps/node.csv /home/vision-workstation/Desktop/vector_maps/point.csv"/>
     
     <!--tf setting--> 
     <node pkg="tf"  type="static_transform_publisher" name="world_to_map" args="$(arg pcd_map_x) $(arg pcd_map_y) 0 $(arg pcd_map_yaw) 0 0 /world /map 10" /> 
@@ -11,4 +13,5 @@
 
     <!--pcd map, vector map setting-->
     <node pkg="map_file" type="points_map_loader" name="points_map_loader" args="noupdate $(arg pcd_map)"/>
+    <node pkg="map_file" type="vector_map_loader" name="vector_map_loader" args="$(arg vector_map)"/>
 </launch>

@@ -5,7 +5,7 @@
   
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="verbose" value="true"/>
-    <arg name="world_name" value="$(find car_demo)/worlds/mcity2.world"/>
+    <arg name="world_name" value="$(arg world)"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="false"/>
     <arg name="paused" value="false"/>
